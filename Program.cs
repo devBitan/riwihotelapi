@@ -47,11 +47,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // Habilita servir archivos estáticos desde wwwroot
 
 app.UseCors("AllowAll"); // Aplicar la política de CORS
 
 app.UseAuthorization();
 
 app.MapControllers();
+// Redirigir a index.html
+app.MapGet("/", () => Results.Redirect("/index.html"));
 
 app.Run();

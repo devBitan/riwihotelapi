@@ -21,6 +21,41 @@ public class RoomsController : ControllerBase
     {
         return await _context.Rooms.ToListAsync();
     }
+    [HttpGet("occupied")]
+    public async Task<ActionResult<IEnumerable<Room>>> GetOccupiedRooms()
+    {
+        var occupiedRooms = await _context.Rooms
+            .Where(r => r.Availability == false) // O false, según cómo definas el estado
+            .ToListAsync();
+
+        return occupiedRooms;
+    }
+
+    [HttpGet("status")]
+    public async Task<ActionResult<IEnumerable<object>>> GetRoomStatus()
+    {
+        var roomStatus = await _context.Rooms
+            .Select(r => new
+            {
+                r.RoomNumber,
+                r.PricePerNight,
+                r.Availability, // Puedes mostrar esto como "Disponible" o "Ocupada" si es booleano
+                Status = r.Availability ? "Disponible" : "Ocupada"
+            })
+            .ToListAsync();
+
+        return roomStatus;
+    }
+    
+    [HttpGet("available")]
+    public async Task<ActionResult<IEnumerable<Room>>> GetAvailableRooms()
+    {
+        var availableRooms = await _context.Rooms
+            .Where(r => r.Availability == true) // true representa habitaciones disponibles
+            .ToListAsync();
+
+        return availableRooms;
+    }
 
     // GET: api/RoomTypes/5
     [HttpGet("{id}")]

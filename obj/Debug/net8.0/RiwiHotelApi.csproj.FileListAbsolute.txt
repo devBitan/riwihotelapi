@@ -113,3 +113,4 @@ C:\CODE\RIWI\CSHARP\RiwiHotelApi\obj\Debug\net8.0\refint\RiwiHotelApi.dll
 C:\CODE\RIWI\CSHARP\RiwiHotelApi\obj\Debug\net8.0\RiwiHotelApi.pdb
 C:\CODE\RIWI\CSHARP\RiwiHotelApi\obj\Debug\net8.0\RiwiHotelApi.genruntimeconfig.cache
 C:\CODE\RIWI\CSHARP\RiwiHotelApi\obj\Debug\net8.0\ref\RiwiHotelApi.dll
+C:\CODE\RIWI\CSHARP\RiwiHotelApi\bin\Debug\net8.0\RiwiHotelApi.staticwebassets.runtime.json

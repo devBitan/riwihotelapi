@@ -37,7 +37,7 @@ public class GuestsController : ControllerBase
     }
 
     // POST: api/RoomTypes
-    [HttpPost]
+    [HttpPost("login")]
     public async Task<ActionResult<Guest>> PostGuest(Guest guest)
     {
         _context.Guests.Add(guest);
