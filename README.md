@@ -79,4 +79,4 @@ After running the API, Swagger will be available at https://localhost:5001/swagg
 
 The content of this project, including but not limited to text, images, graphics, and code, is the property of Riwi and is protected by copyright laws. It may not be reproduced, distributed, modified, or transmitted in any form or by any means without the prior written permission of Riwi.
 
-For inquiries regarding the use or distribution of this project, please contact Riwi at [jquiramadev@outlook.com](mailto:jquiramadev@outlook.com).
+For inquiries regarding the use or distribution of this project, please contact me at [jquiramadev@outlook.com](mailto:jquiramadev@outlook.com).
