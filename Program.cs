@@ -1,14 +1,7 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using RiwiHotelApi.Data;
-// using RiwiHotelApi.Repositories;
-// using RiwiHotelApi.Services;
-// using RiwiHotelApi.Config;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.OpenApi.Models;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,8 +22,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(conectionDB, ServerVersion.Parse("8.0.20-mysql"))
 );
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -45,11 +48,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAll"); // Aplicar la política de CORS
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-//add-migrations nombre
-//dotnet ef migrations add AddingInitialTable
-// dotnet ef database update
